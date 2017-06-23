@@ -1,0 +1,5 @@
+<h2>All users...</h2>
+
+<p *ngFor="let user of all_users">{{ user.email }}... {{ user.first_name }}</p>
+
+<button (click)="logout()">Logout</button>

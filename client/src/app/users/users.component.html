@@ -1,0 +1,60 @@
+<!--<form>
+
+  <label>Email:</label>
+  <input type="text">
+
+  <label>First Name:</label>
+
+  <label>Last Name:</label>
+
+  <label>Password:</label>
+
+  <label>Confirm Password:</label>
+
+  <label>Birthday:</label>
+
+  <input type="submit" name="submit" value="Register">
+
+</form>-->
+
+<fieldset>
+    <legend>Register</legend>
+    <form class="register" #formData="ngForm" (submit)="register()">
+
+      <p><label for="email">Email:</label>
+        <input type="email" name="email" required [(ngModel)]="user.email"></p>
+        
+      <p><label for="first_name">First Name:</label>
+        <input type="text" name="first_name" required [(ngModel)]="user.first_name"></p>
+      
+      <p><label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" required [(ngModel)]="user.last_name"></p>
+      
+      
+      
+      <p><label for="password">Password:</label>
+        <input type="password" name="password" required [(ngModel)]="user.password"></p>
+
+      <p><label for="password_confirmation">Confirm Password:</label>
+        <input type="password" name="password_confirmation" [(ngModel)]="confirmPW"></p>
+        <p *ngIf="(user.password !== confirmPW)" class="error"> Passwords Confirmation must match Password</p>
+      
+      <p><label>Birthday:</label>
+      <input type="date" name="birthday" required [(ngModel)]="user.birthday"></p>
+
+      <input type="submit" name="button" [disabled]="!formData.form.valid" value="Register">
+    </form>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Login</legend>
+    <form class="login" #formData="ngForm" (submit)="login()">
+      <p><label for="email">Email:</label>
+        <input type="email" name="email" [(ngModel)]="returning_user.email"></p>
+      
+      <p><label for="password">Password:</label>
+        <input type="password" name="password" [(ngModel)]="returning_user.password"></p>
+      
+      <button type="submit" name="button">Login</button>
+    </form>
+  </fieldset>
